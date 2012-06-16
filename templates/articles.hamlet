@@ -1,0 +1,61 @@
+<#sidebar>
+        <g:plusone></g:plusone> <a href="https://twitter.com/share" class="twitter-share-button" data-via="ChrisSwires" data-hashtags="Yesod">Tweet</a> <script type="text/javascript" src="http://www.reddit.com/static/button/button1.js"></script>
+
+<#navbar>
+      <li><a href="/">Home</a>
+      <li><a href="/quick">Quick Start</a><ul>
+          <li><a href="/tutorial">Tutorial</a></li></ul>
+      <li><a href="/contact">Contact Me</a>
+      <li><a href="/about">About</a>
+      <li><a href="/blog">Blog</a>
+      <li><a href="/links">Links</a><ul>
+          <li><a href="http://yannesposito.com/Scratch/en/blog/Yesod-tutorial-for-newbies/">Tutorial</a></a></li>
+          <li><a href="http://yesodweb.com">Yesod Home</a></a></li>
+          <li><a href="http://tryhaskell.org">Browser based Haskell tutorial</a></li>
+          <li><a href="http://learnyouahaskell.com/">Learn you a Haskell</a></li>
+          <li><a href="http://www.yesodweb.com/book/">Yesod book</a></li></ul>
+      <li><a href="#">C#</a><ul>
+          <li><a href="#">Speed Test</a></li>
+          <li><a href="#">Database Test</a></li>
+          <li><a href="#">Logic Test</a></li>
+          <li><a href="#">AJAX Test</a></li>
+          <li><a href="#">Asynchronous Test</a></li></ul>
+      <li><a href="#">Yesod</a><ul>
+          <li><a href="/speedtest">Speed Test</a></li>
+          <li><a href="/dbtest">Database Test</a></li>
+          <li><a href="/logictest">Logic Test</a></li>
+          <li><a href="/ajaxtest">Ajax Test</a></li>
+          <li><a href="/asynctest">Asynchronous Test</a></li></ul>
+<head>
+<script>
+   var _gaq = _gaq || [];
+   _gaq.push(['_setAccount', 'UA-32462935-1']);
+   _gaq.push(['_trackPageview']);
+   (function() {
+               var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+               ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+               var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+               })();
+<script>
+  (function() {
+              var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+              po.src = 'https://apis.google.com/js/plusone.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+              })();
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+
+<a style="position: fixed; bottom:5px;left:5px;" href="#" title="Back to Top"><img style="border: none;" src="/static/BackToTop.jpg"/></a>
+
+<#main>
+   <h2> Blog Archive
+
+   <p> Here is an archive of all blog entries to date, please click on a link below:
+
+           $if null articles
+              <p> No entries
+           $else
+              <ul>
+                 $forall Entity articleId article <- articles
+                    <ul>
+                       <a href=@{ArticleR articleId}>#{articleTitle article}
+   

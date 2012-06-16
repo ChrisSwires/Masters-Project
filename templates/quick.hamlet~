@@ -1,0 +1,177 @@
+<#sidebar>
+        <g:plusone></g:plusone> <a href="https://twitter.com/share" class="twitter-share-button" data-via="ChrisSwires" data-hashtags="Yesod">Tweet</a> <script type="text/javascript" src="http://www.reddit.com/static/button/button1.js"></script>
+<#navbar>
+      <li><a href="http://imranshafikhan.com">Home</a>
+      <li><a href="http://imranshafikhan.com/quick">Quick Start</a><ul>
+          <li><a href="http://imranshafikhan.com/tutorial">Tutorial</a></li></ul>
+      <li><a href="http://imranshafikhan.com/contact">Contact Me</a>
+      <li><a href="http://imranshafikhan.com/about">About</a>
+      <li><a href="http://imranshafikhan.com/blog">Blog</a>
+      <li><a href="http://imranshafikhan.com/links">Links</a><ul>
+          <li><a href="http://yannesposito.com/Scratch/en/blog/Yesod-tutorial-for-newbies/">Tutorial</a></a></li>
+          <li><a href="http://yesodweb.com">Yesod Home</a></a></li>
+          <li><a href="http://tryhaskell.org">Browser based Haskell tutorial</a></li>
+          <li><a href="http://learnyouahaskell.com/">Learn you a Haskell</a></li>
+          <li><a href="http://www.yesodweb.com/book/">Yesod book</a></li></ul>
+      <li><a href="#">C#</a><ul>
+          <li><a href="#">Speed Test</a></li>
+          <li><a href="#">Database Test</a></li>
+          <li><a href="#">Logic Test</a></li>
+          <li><a href="#">AJAX Test</a></li>
+          <li><a href="#">Asynchronous Test</a></li></ul>
+      <li><a href="#">Yesod</a><ul>
+          <li><a href="http://imranshafikhan.com/speedtest">Speed Test</a></li>
+          <li><a href="http://imranshafikhan.com/dbtest">Database Test</a></li>
+          <li><a href="http://imranshafikhan.com/logictest">Logic Test</a></li>
+          <li><a href="http://imranshafikhan.com/ajaxtest">Ajax Test</a></li>
+          <li><a href="http://imranshafikhan.com/asynctest">Asynchronous Test</a></li></ul> 
+<head>
+<script>
+   var _gaq = _gaq || [];
+   _gaq.push(['_setAccount', 'UA-32462935-1']);
+   _gaq.push(['_trackPageview']);
+   (function() {
+               var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+               ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+               var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+               })();
+<script>
+  (function() {
+              var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+              po.src = 'https://apis.google.com/js/plusone.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+              })();
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+
+<a style="position: fixed; bottom:5px;left:5px;" href="#" title="Back to Top"><img style="border: none;" src="/static/BackToTop.jpg"/></a>
+<#main>
+   <h1> Yesod Masters Project
+   <#main>
+      <body>
+         <h2> Quick Start Guide
+
+         <p> Following is a quick guide on how to set up your own Yesod development platform for use. Better ones are provided elsewhere, but I thought I would include this just in case. 
+      <body>
+         <h2> Linux Haskell Platform
+
+         <p> In order to begin using Yesod you will need both the Glasgow Haskell Compiler (GHC) and the cabal-install package installer. You can either install them independantly (from the web, a git repository or apt-get etc), or simply install the Haskell Platform available here: 
+
+         <p style="text-align:center"><a href="http://hackage.haskell.org/platform" ><img src="http://hackage.haskell.org/platform/icons/button-64.png"></a> 
+
+         <p>Or from aptitude on Debian:
+
+         <pre> sudo apt-get install haskell-platform
+
+   <#main>
+      <body>
+         <h2> Installation on Windows
+
+         <p> Installation on windows is pretty similar to Linux, simply install the Haskell platform using the above link (and obviously clicking the handy windows button), then cabal update and cabal install yesod-platform in cmd. The path step will not be neccesary.
+
+   <#main>
+      <body>
+         <h2> Yesod Installation
+
+         <p> After this installation you can use cabal to set everything else up for you. Simply run:
+
+         <pre> cabal update
+
+         <pre> cabal install yesod-platform
+
+         <p> And watch the delicous terminal progression. Details on where to go and what to do from here are amply provided for in the links section at the top of the page. Perhaps the best place to start being the Yesod home page, then moving on to the tutorial provided and the Yesod book as you become more comfortable. A couple of Haskell based links have also been provided should you feel that this is the more pressing issue. Alternatively I have attempted to provide a continuation of my small guide here, which is a combination of knowledge gained from other sources, the mailing group and my own experience. 
+
+   <#main>
+      <body>
+         <h2> PATH
+
+         <p> After installation it is important to remember to add cabal/bin to your PATH file so that your system can find the Yesod executeable. This can be achieved using the following terminal command. 
+
+         <pre> PATH=~/.cabal/bin:$PATH
+
+   <#main>
+      <body>
+         <h2> Project Initialisation
+    
+         <p> To begin using yesod simply run:
+
+         <pre> yesod init
+
+         <p> And follow the steps provided for you (your name, project name and database type). Next run:
+
+         <pre> cd (project name)
+
+         <pre> cabal install && yesod devel
+
+         <p> And visit localhost:3000 (the default) to view your newly scaffolded site! 
+
+   <#main>
+      <body>
+         <h2> Deployment
+
+         <p> I only have personal experience of deploying this site using Nginx as a reverse proxy and so this is the method that I will describe here. For other methods please see <a href="http://www.yesodweb.com/book/deploying-your-webapp">Here.</a>
+
+         <p> Install Nginx from either the website <a href="http://http://nginx.org/en/download.html">Here</a> or on a debian system simply using:
+
+         <pre> sudo apt-get install nginx
+
+         <p> Please note that the apt-repository may not install the latest version but either way it should be up-to-date enough to serve your purposes. 
+
+         <h2> Nginx.conf
+
+         <p> Next you need to configure nginx to listen on a specified port and direct that traffic to your Yesod application (which will by default listen on port 3000). An example of a simple configuration file would be as follows:
+
+         <pre> events {
+               <p>    worker_connections 4096;
+               <p>    }
+               <p>
+               <p>    http {
+               <p>         server {
+               <p>                listen 80; # Incoming port for Nginx
+               <p>                server_name www.myawesomedomain.com;
+               <p>                location / {
+               <p>                         proxy_pass http://127.0.0.1:3000; # Proxy to your devel app
+               <p>                           }
+               <p>                }
+               <p>         }
+
+         <p> This is in fact very similar to the .conf that I am using myself. The file that you need to edit is located at /etc/nginx/nginx.conf (this being the location of the servers default settings). As an aside the default file will be read-only and so you will have to change the permissions. In my case (on Ubuntu) I use the follwing command to open a window with root permissions:
+
+         <pre> gksudo nautilus
+
+         <h2> Deploy
+
+         <p> Next simply fire up nginx (sudo /etc/conf.d/nginx start), start your yesod app (cd filename && yesod devel), and you're good to go. 
+
+         <p> Remember to update your DNS to direct traffic to your servers ip (usually as simple as logging into your DNS provider and changing the route) and set up port forwarding if you're behind a router (again usually just logging into your router and creating a firewall rule in my case forward port 80 to my server machine with its reserved internal ip) and everything should be fine and dandy!
+
+   <#main>
+      <body>
+         <h2> Static File Serving
+
+         <p> It is also possible to set up Nginx to allow the serving of static files from a seperate domain. This allows for far increased file serving speeds and a decreased server load for your main application. The simplest method is to simply append the following to your nginx.conf as a second server block:
+
+         <pre>server {
+             <p>     listen 80;
+             <p>     server_name static.myawesomedomain.com;
+             <p>     root /home/michael/sites/mysite/static;
+             <p>     expires max;
+             <p>     } 
+
+         <p> This will allow static files to be accessed seperately, and you should see increased performance. In order to allow your site to see these files it is necessary to make a slight change to the scaffold infrastructure. Simply navigate to you settings.hs file and find the staticRoot conf line. Change this to: 
+
+         <pre> staticRoot conf = [st|http://static.myawesomedomain.com/static|]
+
+         <h2> Using Nginx to Serve Static Files
+
+         <p> Another option is to use nginx to serve your static files for you. In this case you would need to append the following section of code to your existing server block within nginx.conf: 
+
+         <pre> location /static {
+            <p> root /home/michael/sites/mysite; # No need to include /static
+            <p> expires max;
+            <p> }
+ 
+         <p> And then alter the settings.hs file above to direct traffic to your servers home (rather than a static sub-domain or the default localhost)
+
+         <pre> staticRoot conf = [st|http://myawesomedomain.com/static|]
+
+

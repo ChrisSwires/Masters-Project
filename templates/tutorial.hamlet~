@@ -1,0 +1,106 @@
+<#sidebar>
+        <g:plusone></g:plusone> <a href="https://twitter.com/share" class="twitter-share-button" data-via="ChrisSwires" data-hashtags="Yesod">Tweet</a> <script type="text/javascript" src="http://www.reddit.com/static/button/button1.js"></script>
+<#navbar>
+      <li><a href="http://imranshafikhan.com">Home</a>
+      <li><a href="http://imranshafikhan.com/quick">Quick Start</a><ul>
+          <li><a href="http://imranshafikhan.com/tutorial">Tutorial</a></li></ul>
+      <li><a href="http://imranshafikhan.com/contact">Contact Me</a>
+      <li><a href="http://imranshafikhan.com/about">About</a>
+      <li><a href="http://imranshafikhan.com/blog">Blog</a>
+      <li><a href="http://imranshafikhan.com/links">Links</a><ul>
+          <li><a href="http://yannesposito.com/Scratch/en/blog/Yesod-tutorial-for-newbies/">Tutorial</a></a></li>
+          <li><a href="http://yesodweb.com">Yesod Home</a></a></li>
+          <li><a href="http://tryhaskell.org">Browser based Haskell tutorial</a></li>
+          <li><a href="http://learnyouahaskell.com/">Learn you a Haskell</a></li>
+          <li><a href="http://www.yesodweb.com/book/">Yesod book</a></li></ul>
+      <li><a href="#">C#</a><ul>
+          <li><a href="#">Speed Test</a></li>
+          <li><a href="#">Database Test</a></li>
+          <li><a href="#">Logic Test</a></li>
+          <li><a href="#">AJAX Test</a></li>
+          <li><a href="#">Asynchronous Test</a></li></ul>
+      <li><a href="#">Yesod</a><ul>
+          <li><a href="http://imranshafikhan.com/speedtest">Speed Test</a></li>
+          <li><a href="http://imranshafikhan.com/dbtest">Database Test</a></li>
+          <li><a href="http://imranshafikhan.com/logictest">Logic Test</a></li>
+          <li><a href="http://imranshafikhan.com/ajaxtest">Ajax Test</a></li>
+          <li><a href="http://imranshafikhan.com/asynctest">Asynchronous Test</a></li></ul>
+<head>
+<script>
+   var _gaq = _gaq || [];
+   _gaq.push(['_setAccount', 'UA-32462935-1']);
+   _gaq.push(['_trackPageview']);
+   (function() {
+               var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+               ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+               var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+               })();
+<script>
+  (function() {
+              var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+              po.src = 'https://apis.google.com/js/plusone.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+              })();
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+
+<a style="position: fixed; bottom:5px;left:5px;" href="#" title="Back to Top"><img style="border: none;" src="/static/BackToTop.jpg"/></a>
+<#main>
+   <h1> Yesod Masters Project
+   <#main>
+      <body>
+         <h2> Tutorial
+         
+         <p> Presented here is a simple tutorial describing some of the parts of Yesod development that I had problems with when I started. Hopefully this might be able to help others get off the ground. For installation and set-up instead see quick start. 
+
+   <#main>
+      <body>
+         <h2> Shakespearean Templates
+
+         <p> The concept of shakespearean templates gave me a little trouble when I first started and so I thought I'd begin with a quick intro to them. There are four basic types: Hamlet for HTML, Juilius for JavaScript and Cassius and Lucius for CSS. I won't go into detail on Lucius or Julius as within these formats you can easily use verbatim CSS or JavaScript without issue. Hamlet and Cassius however are a little different as they both use whitespace indentation to denote nesting rather than closing tags. This took me a little while to get used to as I was used to HTML and CSS using closing tags and largely ignoring indentation. I would like to say however that after wrapping my head around it I now prefer this method. It is easy to see while writing a section of Hamlet what precisely goes where and which elements are contained within others at a simple glance. 
+
+   <#main>
+      <body>
+         <h2> Multiple Page Sites
+
+         <p> For me this was one of the first issues that I came across that I could not quickly solve given the current material. I'm not entirely sure however whether or not this could be attributed to me simply being dense. There are a number of fairly quick and easy steps that I follow in order to create a new page. If you use or know a better method then please feel free to email me.
+
+         <h2> Modify Your Routes
+
+         <p> The first step that I take is to modify my routes file contained within config in my project directory. Effectively what I'm doing is informing my application that there exists a valid route at myawesomedomain/mypage which calls this 'handler' and can accept 'these' requests. This can be as simple as a single line appended to the file:
+
+         <pre> /mypage MypageR GET
+
+         <p> This would tell my application that there is a valid route at /mypage which calls the handler MypageR and accepts GET requests. 
+
+         <h2> Modify the Handler
+
+         <p> Next I tell my application what I want it to do when /mypage is visited by creating its handler function. Handlers have there own folder (handler) in your project directory. It is possible to either modify the existing Home.hs with new handlers (the option I took until producing my blog) or to create a new file for each handler. Personally I'm not overly opposed to massive files (I can use them to impress my friends), but arguably the second option is adviseable. Here is an example of a possible handler for mypage. 
+
+         <pre> 
+           <p> getMypageR :: Handler RepHtml
+           <p> getMypageR = do
+           <p>    (formWidget, formEnctype) <- generateFormPost sampleForm
+           <p>    let submission = Nothing :: Maybe (FileInfo, Text)
+           <p>       handlerName = "getMypageR" :: Text
+           <p>    defaultLayout $ do
+           <p>       aDomId <- lift newIdent
+           <p>       setTitle "This is my page"
+           <p>       $(widgetFile "mypage")
+         
+         <p> And now to break this down a bit:
+         <li> getMypageR is the declaration that on calling this handler the following should be done (do).
+         <li> RepHtml dictates that the page should be rendered in HTML from the appropriate widget files.
+         <li> defaultLayout $ do tells the application again to do the following after loading default layout files.
+         <li> setTitle sets the pages title in the users browser.
+         <li> The last line informs the application that it should render the widget files "mypage". This will look up all files (hamlet, julius etc) in the templates folder and apply there contents to the page. 
+
+         <h2> Formatting and Content
+
+         <p> The final step I take is to create the accompanying widget files for my new page. In my case usually mypage.hamlet and mypage.lucius. The Lucius file is largely unnecesary in most cases as it is perfectly reasonable to use the default layout, I tend not to purely in case I wish to make changes to a particular pages layout at a later date (although I will probably move across to the default-layout again at some point for optimisation). mypage.hamlet will contain all of the content for your new and swanky page. 
+         
+   <#main>
+      <body>
+         <h2> Authentication
+
+         <p> Under Construction.
+   

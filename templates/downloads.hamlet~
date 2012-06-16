@@ -1,0 +1,47 @@
+<#navbar>
+      <li><a href="http://localhost:3000">Home</a>
+      <li><a href="http://localhost:3000/downloads">Downloads</a>
+      <li><a href="http://localhost:3000/contact">Contact Me</a>
+      <li><a href="http://localhost:3000/about">About</a>
+      <li><a href="http://localhost:3000/links">Links</a><ul>
+          <li><a href="#"><a href="http://yannesposito.com/Scratch/en/blog/Yesod-tutorial-for-newbies/">Tutorial</a></a></li>
+          <li><a href="#"><a href="http://yesodweb.com">Yesod Home</a></a></li>
+          <li><a href="#"><a href="http://tryhaskell.org">Browser based Haskell tutorial</a></a></li>
+          <li><a href="#"><a href="http://learnyouahaskell.com/">Learn you a Haskell</a></a></li>
+          <li><a href="#"><a href="http://www.yesodweb.com/book/">Yesod book</a></a></li></ul>
+      <li><a href="#">C#</a><ul>
+          <li><a href="#">Speed Test</a></li>
+          <li><a href="#">Database Test</a></li>
+          <li><a href="#">Logic Test</a></li>
+          <li><a href="#">AJAX Test</a></li>
+          <li><a href="#">Asynchronous Test</a></li></ul>
+      <li><a href="#">Yesod</a><ul>
+          <li><a href="#">Speed Test</a></li>
+          <li><a href="#">Database Test</a></li>
+          <li><a href="#">Logic Test</a></li>
+          <li><a href="#">AJAX Test</a></li>
+          <li><a href="#">Asynchronous Test</a></li></ul>  
+<#main>
+   <h1> Yesod Masters Project Test Page
+   <#main>
+      <body>
+         <h2> Downloads
+
+         <p> Following is a list of useful download links for you to begin your own Haskell Web-Development projects using the Yesod framework: 
+   <#main>
+      <body>
+         <h2> Haskell Platform
+
+         <p> In order to begin using Yesod you will need both the Glasgow Haskell Compiler (GHC) and the cabal-install package installer. You can either install them independantly (from the web, a git repository or apt-get etc), or simply install the Haskell Platform available here: <a href="http://hackage.haskell.org/platform/">CLICK ME!</a>
+   <#main>
+      <body>
+         <h2> Yesod
+
+         <p> After this installation you can use cabal to set everything else up for you. Simply run:
+
+         <p> cabal update
+
+         <p> cabal install yesod-platform
+
+         <p> And watch the delicous terminal progression. Details on where to go and what to do from here are amply provided for in the links section at the top of the page. Perhaps the best place to start being the Yesod home page, then moving on to the tutorial provided and the Yesod book as you become more comfortable. A couple of Haskell based links have also been provided should you feel that this is the more pressing issue. Enjoy!
+

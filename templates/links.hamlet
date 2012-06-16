@@ -1,0 +1,76 @@
+<#navbar>
+      <li><a href="/">Home</a>
+      <li><a href="/quick">Quick Start</a><ul>
+          <li><a href="/tutorial">Tutorial</a></li></ul>
+      <li><a href="/contact">Contact Me</a>
+      <li><a href="/about">About</a>
+      <li><a href="/blog">Blog</a>
+      <li><a href="/links">Links</a><ul>
+          <li><a href="http://yannesposito.com/Scratch/en/blog/Yesod-tutorial-for-newbies/">Tutorial</a></a></li>
+          <li><a href="http://yesodweb.com">Yesod Home</a></a></li>
+          <li><a href="http://tryhaskell.org">Browser based Haskell tutorial</a></li>
+          <li><a href="http://learnyouahaskell.com/">Learn you a Haskell</a></li>
+          <li><a href="http://www.yesodweb.com/book/">Yesod book</a></li></ul>
+      <li><a href="#">C#</a><ul>
+          <li><a href="#">Speed Test</a></li>
+          <li><a href="#">Database Test</a></li>
+          <li><a href="#">Logic Test</a></li>
+          <li><a href="#">AJAX Test</a></li>
+          <li><a href="#">Asynchronous Test</a></li></ul>
+      <li><a href="#">Yesod</a><ul>
+          <li><a href="/speedtest">Speed Test</a></li>
+          <li><a href="/dbtest">Database Test</a></li>
+          <li><a href="/logictest">Logic Test</a></li>
+          <li><a href="/ajaxtest">Ajax Test</a></li>
+          <li><a href="/asynctest">Asynchronous Test</a></li></ul>
+<head>
+<script>
+   var _gaq = _gaq || [];
+   _gaq.push(['_setAccount', 'UA-32462935-1']);
+   _gaq.push(['_trackPageview']);
+   (function() {
+               var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+               ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+               var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+               })();
+
+<a style="position: fixed; bottom:5px;left:5px;" href="#" title="Back to Top"><img style="border: none;" src="/static/BackToTop.jpg"/></a>
+
+<#main>
+   <h1> Yesod Masters Project
+   <#main>
+      <body>
+         <h2> Yesod Tutorial
+         <p> This tutorial by Yann Esposito has been incredibly useful in the creation of this page and I'm sure will be of great use to others wishing to start. It is fairly easy to grasp and is step-by-step allowing beginners (such as myself) to learn Yesod relatively quickly. 
+         <p> Available <a href="http://yannesposito.com/Scratch/en/blog/Yesod-tutorial-for-newbies/">HERE</a>.
+
+   <#main>
+       <body>
+         <h2> Yesod Web
+         <p> The Yesod Homepage includes links to many pertinent resources, pages and blogs as well as general updates about the framework. 
+         <p> Available <a href="http://yesodweb.com">HERE</a>.
+
+   <#main>
+       <body>
+         <h2> TryHaskell
+         <p> This browser based tutorial was of great use to me in learning the basics of Haskell quickly. GHCI is built into this page to allow you to follow the tutorial entirely within your browser and get to grips with the basics quickly and effectively. 
+         <p> Available <a href="http://tryhaskell.org">HERE</a>.
+
+   <#main>
+       <body>
+         <h2> Learn You a Haskell
+         <p> Originally suggested to me by my tutor this book is easiest way (that I've found) to learn the Haskell language in a short time-space. It is incredibly easy to read, amusing in places and yet still a very effective learning tool. 
+         <p> Available <a href="http://learnyouahaskell.com/">HERE</a>.
+
+   <#main>
+       <body>
+         <h2> Yesod Book
+         <p> The recently released Yesod book provides explanations and example of some of Yesods more advanced features, it is a great reference tool but I would not suggest diving straight into it if you have no Haskell experience. 
+         <p> Available <a href="http://www.yesodweb.com/book/">HERE</a>.
+
+   <#main>
+       <body>
+         <h2> Yesod Wiki
+         <p> The Yesod wiki is updated by the community for the community and is a useful source of information within Yesod web-development. Also a great place to share anything you may have learnt!
+         <p> Available <a href="https://github.com/yesodweb/yesod/wiki">HERE</a>.
+

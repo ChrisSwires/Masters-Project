@@ -1,0 +1,29 @@
+<#navbar>
+      <li><a href="http://localhost:3000">Home</a>
+      <li><a href="http://localhost:3000/quick">Quick Start</a>
+      <li><a href="http://localhost:3000/contact">Contact Me</a>
+      <li><a href="http://localhost:3000/about">About</a>
+      <li><a href="http://localhost:3000/links">Links</a><ul>
+          <li><a href="#"><a href="http://yannesposito.com/Scratch/en/blog/Yesod-tutorial-for-newbies/">Tutorial</a></a></li>
+          <li><a href="#"><a href="http://yesodweb.com">Yesod Home</a></a></li>
+          <li><a href="#"><a href="http://tryhaskell.org">Browser based Haskell tutorial</a></a></li>
+          <li><a href="#"><a href="http://learnyouahaskell.com/">Learn you a Haskell</a></a></li>
+          <li><a href="#"><a href="http://www.yesodweb.com/book/">Yesod book</a></a></li></ul>
+      <li><a href="#">C#</a><ul>
+          <li><a href="http://localhost:3000/speedtest">Speed Test</a></li>
+          <li><a href="http://localhost:3000/dbtest">Database Test</a></li>
+          <li><a href="http://localhost:3000/logictest">Logic Test</a></li>
+          <li><a href="http://localhost:3000/ajaxtest">Ajax Test</a></li>
+          <li><a href="http://localhost:3000/asynctest">Asynchronous Test</a></li></ul>
+      <li><a href="#">Yesod</a><ul>
+          <li><a href="#">Speed Test</a></li>
+          <li><a href="#">Database Test</a></li>
+          <li><a href="#">Logic Test</a></li>
+          <li><a href="#">AJAX Test</a></li>
+          <li><a href="#">Asynchronous Test</a></li></ul>  
+<#main>
+   <h1> Yesod Masters Project Test Page
+   <#main>
+      <body>
+         <h2> Test
+

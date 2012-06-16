@@ -1,0 +1,106 @@
+module Handler.Blog
+    ( getBlogR
+    , postBlogR
+    , getArticleR
+    , postArticleR
+    )
+where
+
+import Import
+import Yesod.Form.Nic (YesodNic, nicHtmlField)
+import Data.Time (UTCTime, getCurrentTime)
+instance YesodNic App
+
+isAdmin user =  userIdent user == "490415@swansea.ac.uk"
+
+entryForm :: Form Article
+entryForm = renderDivs $ Article
+    <$> areq   textField "Name" Nothing
+    <*> aformM (liftIO getCurrentTime)
+    <*> areq   nicHtmlField "Content" Nothing
+
+
+-- The view showing the list of articles
+getBlogR :: Handler RepHtml
+getBlogR = do
+    muser <- maybeAuth
+    -- Get the list of articles inside the database.
+    articles <- runDB $ selectList [] [Desc ArticleTitle]
+    (articleWidget, enctype) <- generateFormPost entryForm
+    defaultLayout $ do
+        $(widgetFile "articles")
+        [whamlet|
+           $maybe Entity _ user <- muser
+              $if isAdmin user
+                 <form method=post enctype=#{enctype}>
+                    ^{articleWidget}
+                       <div>
+                          <input type=submit value=Post New Article>
+|]
+
+isAuthorized BlogR True = do
+       mauth <- maybeAuth
+       case mauth of
+          Nothing -> return AuthenticationRequired
+          Just (Entity _ user)
+             | isAdmin user -> return Authorized
+             | otherwise    -> return AuthenticationRequired
+
+-- we continue Handler/Blog.hs
+postBlogR :: Handler RepHtml
+postBlogR = do
+    ((res,articleWidget),enctype) <- runFormPost entryForm
+    case res of 
+         FormSuccess article -> do 
+            articleId <- runDB $ insert article
+            setMessage $ toHtml $ (articleTitle article)
+            redirect $ ArticleR articleId 
+         _ -> defaultLayout $ do
+                setTitle "Please correct your entry form"
+                $(widgetFile "articleadderror")
+
+commentForm :: ArticleId -> Form Comment
+commentForm articleId= renderDivs $ Comment
+    <$> pure articleId
+    <*> aformM (liftIO getCurrentTime)
+    <*> areq textField "Name" Nothing
+    <*> areq textareaField "Comment" Nothing
+
+postArticleR :: ArticleId -> Handler RepHtml
+postArticleR articleId = do
+    ((res, commentWidget), enctype) <- runFormPost (commentForm articleId)
+    case res of
+        FormSuccess comment -> do
+            _ <- runDB $ insert comment
+            setMessage "Comment added"
+            redirect $ ArticleR articleId
+        _ -> defaultLayout $ do
+            setTitle "Please Correct"
+            [whamlet|
+<form method=post enctype=#{enctype}>
+    ^{commentWidget}
+    <div>
+        <input type=submit value=Add Comment>
+|]
+
+getArticleR :: ArticleId -> Handler RepHtml
+getArticleR articleId = do
+    (article, comments) <- runDB $ do
+        articles <- runDB $ selectList [] [Desc ArticleTitle]
+        article <- get404 articleId
+        comments <- selectList [CommentArticle ==. articleId] [Asc CommentPosted]
+        return (article, map entityVal comments)
+    muser <- maybeAuth
+    (commentWidget, enctype) <- generateFormPost (commentForm articleId)
+    defaultLayout $ do
+        $(widgetFile "article")
+        [whamlet|
+           $maybe Entity _ user <- muser
+              <form method=post enctype=#{enctype}>
+                 ^{commentWidget}
+                    <div>
+                       <input type=submit value=Post Comment>
+           $nothing
+              <p>
+                 <a href=@{AuthR LoginR}> Please login to comment
+|]

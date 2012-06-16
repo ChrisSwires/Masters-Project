@@ -1,0 +1,77 @@
+<#sidebar>
+        <g:plusone></g:plusone> <a href="https://twitter.com/share" class="twitter-share-button" data-via="ChrisSwires" data-hashtags="Yesod">Tweet</a> <script type="text/javascript" src="http://www.reddit.com/static/button/button1.js"></script>
+<#navbar>
+      <li><a href="http://imranshafikhan.com">Home</a>
+      <li><a href="http://imranshafikhan.com/quick">Quick Start</a><ul>
+          <li><a href="http://imranshafikhan.com/tutorial">Tutorial</a></li></ul>
+      <li><a href="http://imranshafikhan.com/contact">Contact Me</a>
+      <li><a href="http://imranshafikhan.com/about">About</a>
+      <li><a href="http://imranshafikhan.com/blog">Blog</a>
+      <li><a href="http://imranshafikhan.com/links">Links</a><ul>
+          <li><a href="http://yannesposito.com/Scratch/en/blog/Yesod-tutorial-for-newbies/">Tutorial</a></a></li>
+          <li><a href="http://yesodweb.com">Yesod Home</a></a></li>
+          <li><a href="http://tryhaskell.org">Browser based Haskell tutorial</a></li>
+          <li><a href="http://learnyouahaskell.com/">Learn you a Haskell</a></li>
+          <li><a href="http://www.yesodweb.com/book/">Yesod book</a></li></ul>
+      <li><a href="#">C#</a><ul>
+          <li><a href="#">Speed Test</a></li>
+          <li><a href="#">Database Test</a></li>
+          <li><a href="#">Logic Test</a></li>
+          <li><a href="#">AJAX Test</a></li>
+          <li><a href="#">Asynchronous Test</a></li></ul>
+      <li><a href="#">Yesod</a><ul>
+          <li><a href="http://imranshafikhan.com/speedtest">Speed Test</a></li>
+          <li><a href="http://imranshafikhan.com/dbtest">Database Test</a></li>
+          <li><a href="http://imranshafikhan.com/logictest">Logic Test</a></li>
+          <li><a href="http://imranshafikhan.com/ajaxtest">Ajax Test</a></li>
+          <li><a href="http://imranshafikhan.com/asynctest">Asynchronous Test</a></li></ul>
+<head>
+<script>
+   var _gaq = _gaq || [];
+   _gaq.push(['_setAccount', 'UA-32462935-1']);
+   _gaq.push(['_trackPageview']);
+   (function() {
+               var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+               ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+               var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+               })();
+<script>
+  (function() {
+              var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+              po.src = 'https://apis.google.com/js/plusone.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+              })();
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+
+<a style="position: fixed; bottom:5px;left:5px;" href="#" title="Back to Top"><img style="border: none;" src="/static/BackToTop.jpg"/></a>
+
+<#main>
+   <h1> Yesod Masters Project
+   <#main>
+      <body>
+         <h2> About
+         
+         <p> Presented here is some more information about the project in general, its goals and how these will be achieved. All of this is taken from my project requirements document. 
+
+   <#main>
+       <body>
+         <h2> Objectives:
+         <p> The overall goal of this project is to design and build a comprehensive online and browser based test suite to aid in the comparison of the Yesod web framework with Microsoft's .net development system. The primary goal behind this method of comparison is to not only enhance the number, sources and variations between test results for the project as a whole but also to allow potential users of the Yesod environment to see the effects of the differences between the frameworks themselves and provide feedback on there personal experience of such differences. Testing of the two frameworks various capabilities will be achieved through the use of several small online test programs each aimed at the testing of a specific aspect of the framework (for example overall performance speed). The suite itself will consist of two independent and concurrently hosted websites, each running it's own framework (and backed by its native server, warp in Yesod's case), with the tests mounted within there respective environments and the site infrastructure being contained within the Yesod half. The decision regarding site infrastructure was made mainly to provide further experience with Yesod prior to the commencement of the main programming tasks. 
+
+   <#main>
+       <body>
+         <h2> Statement of Scope:
+         <p> The site will include: 
+
+         <li><p>Infrastructure: A relatively simple GUI presenting to the user the goals of the project on a site homepage with relatively simple controls. This will be written for the Yesod platform using CSS and Hamlet (possibly with the inclusion of some JavaScript or Julius in the case of Yesod), to provide a quick and easy to use interface and minimize both confusion and site overheads.  This section of the page will also include links to all of the relevant software tests within the suite and resources involved within their creation as well as serving as a centralized database for all of the various results garnered from the testing of the frameworks. 
+
+         <li><p>Speed Test: This will take the form of a simple 'pong' program written in both frameworks to accurately test the numbers of requests per second that each can handle under controlled conditions. The results of these tests will be saved within a database contained within the main pages architecture to allow for easy access by both the users and administrator for viewing and involvement within the final project writeup. 
+
+         <li><p>Database Test: This test will involve the creation of a database containing controlled information with which the user can then interact from each of the frameworks to ascertain a measure of the ability and speed of each at handling and executing queries. Sample interactions could include; Searching, Search and Replace, Updating etc. 
+
+         <li><p>Logic Test: The aim here will to test the underlying logical programmatic implementation of each framework (C# for Microsoft and Haskell for Yesod) to measure speed, ease of use accuracy etc. This will take the form of a simple browser based game (potentially Black Jack), which the user can play against the CPU and measure the 'feel' of the program, it's reliability playability and response time for example. Another possible evolution would be the involvement of other players within the game itself to allow multi player games (against the dealer). 
+
+         <li><p>AJAX Test: A logical extension of the prior, this test will improve the previous version of the game created for the logic test in order to implement asynchronous I/O within the game environment in order (from the users perspective) to increase response time and reduce server load. From a test perspective this will allow the testing of the framework's ability  to deal effectively with async request handling and the implementation of AJAX (which is becoming increasingly common in modern web-design and is thus of great importance for a complete test-suite). 
+
+         <li><p>Asynchronous Test: This will take the form of either a messaging application allowing interaction between registered users that are currently logged into the system. This will allow for the accurate testing of the frameworks async capabilities and also enable communication between clients in real time (who may wish to discuss the suite or there findings, ask questions etc). The alternative would be a simple two player game to test async capability. The decision will largely depend on the time available to create the app and also the amount of users willing to test a messaging application (as with a small number the use of the results of a messgaing test will be limited).   
+
